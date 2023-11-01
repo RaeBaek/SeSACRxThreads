@@ -123,8 +123,14 @@ class BirthdayViewController: UIViewController {
                     let month = tMonth - cMonth
                     let day = tDay - cday
                     
-                    if year >= 17 && month >= 0 && day >= 0 {
-                        object.buttonEnabled.onNext(true)
+                    // 태어난지 17년째 되는 년 + 오늘의 월이 내 생일의 월보다 같거나 커야함
+                    if year >= 17 && month >= 0 {
+                        // 오늘의 월은 같은데 오늘의 일이 내 생일보다 작다면 아직 내 생일은 오지 않음
+                        if month == 0 && day < 0 {
+                            object.buttonEnabled.onNext(false)
+                        } else {
+                            object.buttonEnabled.onNext(true)
+                        }
                     } else {
                         object.buttonEnabled.onNext(false)
                     }
@@ -158,7 +164,12 @@ class BirthdayViewController: UIViewController {
     }
     
     @objc func nextButtonClicked() {
-        print("가입완료")
+        do {
+            let birthday = try birthday.value()
+            print(birthday, "가입완료")
+        } catch {
+            print("생일을 불러오지 못했습니다.")
+        }
     }
     
     func configureLayout() {
