@@ -15,11 +15,7 @@ class PhoneViewController: UIViewController {
     let phoneTextField = SignTextField(placeholderText: "연락처를 입력해주세요.")
     let nextButton = PointButton(title: "다음")
     
-    let phone = BehaviorSubject(value: "010")
-    let buttonColor = BehaviorSubject(value: UIColor.systemOrange)
-    let buttonEnabled = BehaviorSubject(value: false)
-    
-    let disposeBag = DisposeBag()
+    let viewModel = PhoneViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,22 +31,30 @@ class PhoneViewController: UIViewController {
     
     func bind() {
         
-        buttonEnabled
-            .bind(to: nextButton.rx.isEnabled)
-            .disposed(by: disposeBag)
+//        buttonEnabled
+//            .bind(to: nextButton.rx.isEnabled)
+//            .disposed(by: disposeBag)
         
-        buttonColor
-            .bind(to: nextButton.rx.backgroundColor, phoneTextField.rx.tintColor)
-            .disposed(by: disposeBag)
+        viewModel.setNextButtonEnable(button: nextButton)
         
-        buttonColor
-            .map { $0.cgColor }
-            .bind(to: phoneTextField.layer.rx.borderColor)
-            .disposed(by: disposeBag)
+//        buttonColor
+//            .bind(to: nextButton.rx.backgroundColor, phoneTextField.rx.tintColor)
+//            .disposed(by: disposeBag)
+//        
+//        buttonColor
+//            .map { $0.cgColor }
+//            .bind(to: phoneTextField.layer.rx.borderColor)
+//            .disposed(by: disposeBag)
         
-        phone
-            .bind(to: phoneTextField.rx.text)
-            .disposed(by: disposeBag)
+        viewModel.setButtonTextFieldColor(button: nextButton, textField: phoneTextField)
+        
+        
+//        phone
+//            .bind(to: phoneTextField.rx.text)
+//            .disposed(by: disposeBag)
+        
+        viewModel.setPhoneTextFieldValue(textField: phoneTextField)
+        
         
 //        phone
 //            .map { $0.count > 12 }
@@ -73,23 +77,29 @@ class PhoneViewController: UIViewController {
 //            }
 //            .disposed(by: disposeBag)
         
-        phone
-            .map { $0.count > 12 }
-            .subscribe(with: self) { object, value in // RxSwift 6.1
-                print(value)
-                let color = value ? UIColor.systemBlue : UIColor.systemOrange
-                object.buttonColor.onNext(color)
-                object.buttonEnabled.onNext(value)
-            }
-            .disposed(by: disposeBag)
         
-        phoneTextField.rx.text.orEmpty
-            .subscribe { value in
-                let result = value.formated(by: "###-####-####")
-                print(value, result)
-                self.phone.onNext(result)
-            }
-            .disposed(by: disposeBag)
+        
+//        phone
+//            .map { $0.count > 12 }
+//            .subscribe(with: self) { object, value in // RxSwift 6.1
+//                print(value)
+//                let color = value ? UIColor.systemBlue : UIColor.systemOrange
+//                object.buttonColor.onNext(color)
+//                object.buttonEnabled.onNext(value)
+//            }
+//            .disposed(by: disposeBag)
+        
+//        viewModel.setNextButton()
+        
+//        phoneTextField.rx.text.orEmpty
+//            .subscribe { value in
+//                let result = value.formated(by: "###-####-####")
+//                print(value, result)
+//                self.phone.onNext(result)
+//            }
+//            .disposed(by: disposeBag)
+        
+        viewModel.setPhoneValue(textField: phoneTextField)
         
     }
     
