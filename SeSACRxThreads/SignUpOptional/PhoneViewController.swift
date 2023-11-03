@@ -17,6 +17,8 @@ class PhoneViewController: UIViewController {
     
     let viewModel = PhoneViewModel()
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,75 +33,30 @@ class PhoneViewController: UIViewController {
     
     func bind() {
         
-//        buttonEnabled
-//            .bind(to: nextButton.rx.isEnabled)
-//            .disposed(by: disposeBag)
+        //buttonColor는 true or false
+        viewModel.buttonStatus
+            .subscribe(with: self) { owner, value in
+                let color = value ? UIColor.systemBlue : UIColor.systemRed
+                
+                owner.nextButton.backgroundColor = color
+                owner.nextButton.isEnabled = value
+                
+                owner.phoneTextField.tintColor = color
+                owner.phoneTextField.layer.borderColor = color.cgColor
+            }
+            .disposed(by: disposeBag)
         
-        viewModel.setNextButtonEnable(button: nextButton)
+        viewModel.inputPhone
+            .subscribe(with: self) { owner, value in
+                owner.phoneTextField.text = value
+            }
+            .disposed(by: disposeBag)
         
-//        buttonColor
-//            .bind(to: nextButton.rx.backgroundColor, phoneTextField.rx.tintColor)
-//            .disposed(by: disposeBag)
-//        
-//        buttonColor
-//            .map { $0.cgColor }
-//            .bind(to: phoneTextField.layer.rx.borderColor)
-//            .disposed(by: disposeBag)
-        
-        viewModel.setButtonTextFieldColor(button: nextButton, textField: phoneTextField)
-        
-        
-//        phone
-//            .bind(to: phoneTextField.rx.text)
-//            .disposed(by: disposeBag)
-        
-        viewModel.setPhoneTextFieldValue(textField: phoneTextField)
-        
-        
-//        phone
-//            .map { $0.count > 12 }
-//            .subscribe { value in
-//                print(value)
-//                let color = value ? UIColor.systemBlue : UIColor.systemOrange
-//                self.buttonColor.onNext(color)
-//                self.buttonEnabled.onNext(value)
-//            }
-//            .disposed(by: disposeBag)
-        
-//        phone
-//            .map { $0.count > 12 }
-//            .withUnretained(self) // RxSwift 6
-//            .subscribe { object, value in
-//                print(value)
-//                let color = value ? UIColor.systemBlue : UIColor.systemOrange
-//                object.buttonColor.onNext(color)
-//                object.buttonEnabled.onNext(value)
-//            }
-//            .disposed(by: disposeBag)
-        
-        
-        
-//        phone
-//            .map { $0.count > 12 }
-//            .subscribe(with: self) { object, value in // RxSwift 6.1
-//                print(value)
-//                let color = value ? UIColor.systemBlue : UIColor.systemOrange
-//                object.buttonColor.onNext(color)
-//                object.buttonEnabled.onNext(value)
-//            }
-//            .disposed(by: disposeBag)
-        
-//        viewModel.setNextButton()
-        
-//        phoneTextField.rx.text.orEmpty
-//            .subscribe { value in
-//                let result = value.formated(by: "###-####-####")
-//                print(value, result)
-//                self.phone.onNext(result)
-//            }
-//            .disposed(by: disposeBag)
-        
-        viewModel.setPhoneValue(textField: phoneTextField)
+        phoneTextField.rx.text.orEmpty
+            .subscribe(with: self) { owner, value in
+                owner.viewModel.outputPhone.onNext(value)
+            }
+            .disposed(by: disposeBag)
         
     }
     
