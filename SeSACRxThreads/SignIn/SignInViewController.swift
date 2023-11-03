@@ -17,7 +17,11 @@ class SignInViewController: UIViewController {
     let signInButton = PointButton(title: "로그인")
     let signUpButton = UIButton()
     
+    let testSwitch = UISwitch()
+    
     let viewModel = SignInViewModel()
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +35,18 @@ class SignInViewController: UIViewController {
         
         switchTest()
         
+        viewModel.isOn
+            .observe(on: MainScheduler.instance)
+            .bind(with: self, onNext: { owner, value in
+                owner.testSwitch.setOn(value, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     func switchTest() {
-        view.addSubview(viewModel.test)
-        viewModel.test.snp.makeConstraints {
+        view.addSubview(testSwitch)
+        testSwitch.snp.makeConstraints {
             $0.top.equalTo(150)
             $0.leading.equalTo(100)
         }

@@ -14,15 +14,6 @@ class NicknameViewModel {
     let word = PublishSubject<String>() //BehaviorSubject(value: "")
     let buttonStatus = BehaviorSubject(value: false)
     
-    let inputYear = PublishSubject<Int>()
-    let outputYear = PublishSubject<String>()
-    
-    let inputMonth = PublishSubject<Int>()
-    let outputMonth = PublishSubject<String>()
-    
-    let inputDay = PublishSubject<Int>()
-    let outputDay = PublishSubject<String>()
-    
     let disposeBag = DisposeBag()
     
     init() {
@@ -35,23 +26,6 @@ class NicknameViewModel {
             }
             .disposed(by: disposeBag)
         
-        inputYear
-            .subscribe(with: self) { owner, value in
-                owner.outputYear.onNext("\(value)년")
-            }
-            .disposed(by: disposeBag)
-        
-        inputMonth
-            .subscribe(with: self) { owner, value in
-                owner.outputMonth.onNext("\(value)월")
-            }
-            .disposed(by: disposeBag)
-        
-        inputDay
-            .subscribe(with: self) { owner, value in
-                owner.outputDay.onNext("\(value)일")
-            }
-            .disposed(by: disposeBag)
     }
     
 }

@@ -11,9 +11,7 @@ import RxCocoa
 
 class SignInViewModel {
     
-    let test = UISwitch()
-    
-    let isOn = PublishSubject<Bool>() //BehaviorSubject(value: true) //Observable.of(true)
+    let isOn = BehaviorSubject(value: true) //BehaviorSubject(value: true) //Observable.of(true)
     let disposeBag = DisposeBag()
     
     init() {
@@ -31,18 +29,11 @@ class SignInViewModel {
 //            .disposed(by: disposeBag)
 //        isOn.onNext(true)
         
-        isOn
-            .bind { value in
-                self.test.setOn(value, animated: true)
-                print("양방향 동작?")
-            }
-            .disposed(by: disposeBag)
-        
-        isOn.onNext(true)
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.isOn.onNext(false)
         }
+        
+        
         
     }
     

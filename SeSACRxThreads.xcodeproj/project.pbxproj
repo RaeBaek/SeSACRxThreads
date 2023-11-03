@@ -24,13 +24,13 @@
 		041280652AEFA2F000972552 /* SignTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280642AEFA2F000972552 /* SignTextField.swift */; };
 		0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280692AEFA91E00972552 /* SignUpViewController.swift */; };
 		0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412806B2AEFABFE00972552 /* PasswordViewController.swift */; };
-		0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0412806E2AEFAD2D00972552 /* BirthdayViewController.swift */; };
 		041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280702AEFAD3D00972552 /* PhoneViewController.swift */; };
 		041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280722AEFAD4B00972552 /* NicknameViewController.swift */; };
 		041280782AF1D14000972552 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280772AF1D14000972552 /* Resource.swift */; };
 		141DDC422AF3CB5600FE54AF /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141DDC412AF3CB5600FE54AF /* PhoneViewModel.swift */; };
 		14435D092AF4E27F00E961FB /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14435D082AF4E27F00E961FB /* BirthdayViewModel.swift */; };
 		14435D0B2AF5011600E961FB /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14435D0A2AF5011600E961FB /* NicknameViewModel.swift */; };
+		14435D0D2AF507E800E961FB /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14435D0C2AF507E800E961FB /* BirthdayViewController.swift */; };
 		14A630B92AF22E4700AFCEEA /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A630B82AF22E4700AFCEEA /* Extension + String.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,13 +70,13 @@
 		041280642AEFA2F000972552 /* SignTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignTextField.swift; sourceTree = "<group>"; };
 		041280692AEFA91E00972552 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0412806B2AEFABFE00972552 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
-		0412806E2AEFAD2D00972552 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		041280702AEFAD3D00972552 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		041280722AEFAD4B00972552 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		041280772AF1D14000972552 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		141DDC412AF3CB5600FE54AF /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		14435D082AF4E27F00E961FB /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 		14435D0A2AF5011600E961FB /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
+		14435D0C2AF507E800E961FB /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		14A630B82AF22E4700AFCEEA /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -194,7 +194,7 @@
 		0412806D2AEFAD0F00972552 /* SignUpOptional */ = {
 			isa = PBXGroup;
 			children = (
-				0412806E2AEFAD2D00972552 /* BirthdayViewController.swift */,
+				14435D0C2AF507E800E961FB /* BirthdayViewController.swift */,
 				14435D082AF4E27F00E961FB /* BirthdayViewModel.swift */,
 				041280702AEFAD3D00972552 /* PhoneViewController.swift */,
 				141DDC412AF3CB5600FE54AF /* PhoneViewModel.swift */,
@@ -353,7 +353,6 @@
 			files = (
 				14A630B92AF22E4700AFCEEA /* Extension + String.swift in Sources */,
 				041280782AF1D14000972552 /* Resource.swift in Sources */,
-				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
 				14435D092AF4E27F00E961FB /* BirthdayViewModel.swift in Sources */,
@@ -363,6 +362,7 @@
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
+				14435D0D2AF507E800E961FB /* BirthdayViewController.swift in Sources */,
 				14435D0B2AF5011600E961FB /* NicknameViewModel.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				141DDC422AF3CB5600FE54AF /* PhoneViewModel.swift in Sources */,
@@ -547,8 +547,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Week16;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -579,8 +579,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Week16;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
